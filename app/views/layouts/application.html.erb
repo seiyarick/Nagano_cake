@@ -13,7 +13,42 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="nav navbar-nav navbar-right wf-mplus1p">
+          <ul class="nav navbar-nav mr-auto ">
+            <% if customer_signed_in? %>
+
+            <li class="nav-item">
+              <%= link_to "マイページ", public_costomer_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "商品一覧", public_items_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "カート", public_cart_items_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-secondary" %>
+            </li>
+
+            <% elsif admin_signed_in? %>
+
+            <li class="nav-item">
+              <%= link_to "商品一覧", public_itemr_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "会員一覧", admin_customerss_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "注文履歴一覧", admin_orders_show_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-outline-secondary" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-secondary" %>
+            </li>
+
+            <% else %>
+
             <li class="nav-item">
               <%= link_to "About", admin_homes_top_path, class: "btn btn-outline-secondary" %>
             </li>
@@ -26,6 +61,7 @@
             <li class="nav-item">
               <%= link_to "ログイン", new_admin_session_path, class: "btn btn-outline-secondary" %>
             </li>
+            <% end %>
           </ul>
         </div>
       </div>

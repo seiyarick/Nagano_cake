@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     get 'orders/show'
     get 'homes/top'
     resources :customers, only: [:index, :show, :edit]
-    resources :genres, only: [:index, :edit]
+    resources :genres, only: [:index, :edit, :create]
     resources :items, only: [:index, :new, :show, :edit]
   end
 

@@ -2,11 +2,17 @@ Rails.application.routes.draw do
   devise_for :admins, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
+
+  devise_for :customers, skip: [:passwords], controllers: {
+    registrations: "public/registrations", #登録簿
+    sessions: 'public/sessions'
+  }
+
   namespace :admin do
     get 'orders/show'
     get 'homes/top'
     resources :customers, only: [:index, :show, :edit]
-    resources :genres, only: [:index, :edit, :create]
+    resources :genres, only: [:index, :edit, :create, :update]
     resources :items, only: [:index, :new, :show, :edit]
   end
 
@@ -59,10 +65,6 @@ Rails.application.routes.draw do
 
   # end
   #顧客用
-  devise_for :customers, skip: [:passwords], controllers: {
-    registrations: "public/registrations", #登録簿
-    sessions: 'public/sessions'
-  }
 
   #管理者用
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

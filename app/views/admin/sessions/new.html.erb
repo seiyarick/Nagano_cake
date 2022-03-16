@@ -1,18 +1,16 @@
-<h2>管理者ログイン</h2>
 <div class="row g-3 align-items-center">
-    <%= form_with model:@admin, url:admin_session_path(resource_name) do |f| %>
-      <div class="col-auto">
-        <%= f.label :メールアドレス, class:"col-auto" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+  <div class="row g-3 align-items-center">
+    <h2>管理者ログイン</h2>
+    <%= form_with model:@admin, url:admin_session_path do |f| %> <!--1.forからwithに2.model書き換え3.引数不要-->
+      <div class="field">
+        <%= f.label :メールアドレス %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
 
-      <div class="col-auto">
+      <div class="field">
         <%= f.label :パスワード %>
         <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
       </div>
-    <%= render "admin/shared/links" %>
-
-</div>
 
       <!--<%# if devise_mapping.rememberable? %>-->
       <!--  <div class="field">-->
@@ -25,4 +23,5 @@
         <%= f.submit "ログイン", class:"btn btn-primary" %>
       </div>
     <% end %>
-   
+
+    <%= render "admin/shared/links" %>

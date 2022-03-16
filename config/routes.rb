@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :admins, skip: [:registrations, :passwords], controllers: {
+    sessions: "admin/sessions"
+  }
   namespace :admin do
     get 'orders/show'
     get 'homes/top'
@@ -62,8 +65,5 @@ Rails.application.routes.draw do
   }
 
   #管理者用
-  devise_for :admins, skip: [:registrations, :passwords], controllers: {
-    sessions: "admin/sessions"
-  }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

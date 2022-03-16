@@ -32,10 +32,10 @@
             <% elsif admin_signed_in? %>
 
             <li class="nav-item">
-              <%= link_to "商品一覧", public_itemr_path, class: "btn btn-outline-secondary" %>
+              <%= link_to "商品一覧", public_items_path, class: "btn btn-outline-secondary" %>
             </li>
             <li class="nav-item">
-              <%= link_to "会員一覧", admin_customerss_path, class: "btn btn-outline-secondary" %>
+              <%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-secondary" %>
             </li>
             <li class="nav-item">
               <%= link_to "注文履歴一覧", admin_orders_show_path, class: "btn btn-outline-secondary" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_15_065937) do
+ActiveRecord::Schema.define(version: 2022_03_17_061957) do
 
   create_table "addresses", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -64,12 +64,12 @@ ActiveRecord::Schema.define(version: 2022_03_15_065937) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "name"
     t.text "introduction"
-    t.integer "proce"
     t.boolean "is_active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "name"
+    t.integer "price"
   end
 
   create_table "ordering_details", force: :cascade do |t|

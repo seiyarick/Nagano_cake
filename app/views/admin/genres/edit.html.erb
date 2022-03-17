@@ -1,6 +1,7 @@
 <h1>Admin::ジャンル編集</h1>
 <div class="form_group">
-  <%= form_with model:@genre ,url: admin_genre_path do |f| %><!--[PATCH]updateのpathが必要-->
+  <%= form_with model:@genre ,url: admin_genre_path do |f| %><!--[PATCH]
+  updateのpathが必要-->
   <label class="genre_name">ジャンル名</label>
   <%= f.text_field :name %>
   <%= f.submit "変更を保存", class:"btn btn-success" %>

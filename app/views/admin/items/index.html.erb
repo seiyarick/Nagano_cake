@@ -1,4 +1,8 @@
 <h1>Admin::商品一覧</h1>
+<%= link_to new_admin_item_path, class:"btn btn-light rounded-circle p-0" do %>
+<button style="width:2rem;height:2rem;">＋</button>
+<% end %>
+
 
 <table class="item_table">
   <tr>
@@ -19,4 +23,5 @@
     </tr>
   </tbody>
   <% end %>
+  <%= paginate @items %>
 </table>

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get 'homes/top'
     resources :customers, only: [:index, :show, :edit]
     resources :genres, only: [:index, :edit, :create, :update]
-    resources :items, only: [:index, :new, :show, :edit, :create]
+    resources :items, only: [:index, :new, :show, :edit, :create, :update]
   end
 
   namespace :public do

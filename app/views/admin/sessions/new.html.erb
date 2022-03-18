@@ -1,7 +1,7 @@
 <div class="row g-3 align-items-center">
   <div class="row g-3 align-items-center">
     <h2>管理者ログイン</h2>
-    <%= form_with model:@admin, url:admin_session_path do |f| %> <!--1.forからwithに2.model書き換え3.引数不要-->
+    <%= form_with model:@admin, url:admin_homes_top_path do |f| %> <!--1.forからwithに2.model書き換え3.引数不要-->
       <div class="field">
         <%= f.label :メールアドレス %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

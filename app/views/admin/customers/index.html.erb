@@ -1,6 +1,6 @@
 <h1>Admin::会員一覧</h1>
 <div class="table">
-  
+
   <tr>
     <th>会員ID</th>
     <th>氏名</th>
@@ -10,12 +10,18 @@
 　<% @customers.each do |customer| %>
 <tbody>
   <tr>
-    <td> </td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><%= customer.id %></td>
+    <td><%= customer.name %></td>
+    <td><%= customer.email %></td>
+    <td>
+      <% if customer.is_deleted == true %>
+        有効
+      <% else %>
+        退会
+      <% end %>
+    </td>
   </tr>
-  
 </tbody>
-
+  <% end %>
 </div>
+<%= paginate @customers %>

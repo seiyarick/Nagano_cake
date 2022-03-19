@@ -3,8 +3,11 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
-
-
+<div class="form">
+  <div class="field">
+    <label>名前</label>
+    <form>(姓)<%= f.text_field :first_name %>(名)<%= f.text_field :last_name %></form>
+  </div>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -27,5 +30,5 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
+</div>
 <%= render "public/shared/links" %>

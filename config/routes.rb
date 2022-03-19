@@ -24,7 +24,8 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :edit]
     resources :orders, only: [:new, :index, :show]
     resources :cart_items, only: [:index]
-    resources :customers, only: [:show, :edit]
+    resources :customers, only: [:show, :edit, :update]
+    get 'customers/confirm' => "customers#confirm"
     resources :items, only: [:index, :show]
   end
   # namespace :admin do

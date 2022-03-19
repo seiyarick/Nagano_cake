@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'orders/show'
     get 'homes/top'
+    get 'admin' => 'homes#top'
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :edit, :create, :update]
     resources :items, only: [:index, :new, :show, :edit, :create, :update]
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   namespace :public do
     get 'homes/top'
     get 'homes/about'
+    root 'homes#top'
     resources :addresses, only: [:index, :edit]
     resources :orders, only: [:new, :index, :show]
     resources :cart_items, only: [:index]

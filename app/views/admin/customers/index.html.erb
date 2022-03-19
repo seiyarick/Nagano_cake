@@ -2,28 +2,28 @@
   <div class="row">
     <div class="col-12">
       <div class="table">
-      <h2>会員一覧</h2>
-        <tr>
-          <th>会員ID</th>
-          <th>氏名</th>
-          <th>メールアドレス</th>
-          <th>ステータス</th>
-        </tr>
-      　<% @customers.each do |customer| %>
-      <tbody>
-        <tr>
-          <td><%= customer.id %></td>
-          <td><%= customer.name %></td>
-          <td><%= customer.email %></td>
-          <td>
-            <% if customer.is_deleted == true %>
-              <text class="text-success">有効</text>
-            <% else %>
-              <text class="text-danger">退会</text>
-            <% end %>
-          </td>
-        </tr>
-      </tbody>
+        <h2>会員一覧</h2>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        　<% @customers.each do |customer| %>
+          <tbody>
+            <tr>
+              <td><%= customer.id %></td>
+              <td><%= customer.name %></td>
+              <td><%= customer.email %></td>
+              <td>
+                <% if customer.is_deleted == true %>
+                  <text class="text-success">有効</text>
+                <% else %>
+                  <text class="text-danger">退会</text>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
         <% end %>
       </div>
       <%= paginate @customers %>

@@ -18,7 +18,7 @@
 
           <ul class="nav navbar-nav ml-auto ">
             <li class="nav-item mx-3">
-              <%= link_to "マイページ", public_costomer_path, class: "btn btn-outline-secondary" %>
+              <%= link_to "マイページ", public_customer_path(current_customer), class: "btn btn-outline-secondary" %>
             </li>
             <li class="nav-item mx-3">
               <%= link_to "商品一覧", public_items_path, class: "btn btn-outline-secondary" %>
@@ -58,7 +58,7 @@
               <%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-secondary" %>
             </li>
             <li class="nav-item mx-3">
-              <%= link_to "新規登録", new_customer_session_path, class: "btn btn-outline-secondary" %>
+              <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-secondary" %>
             </li>
             <li class="nav-item ml-3 mr-5">
               <%= link_to "ログイン", new_admin_session_path, class: "btn btn-outline-secondary" %>

@@ -41,7 +41,7 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.string :postal_code #郵便番号
       t.string :address #住所
       t.string :telephone_number #電話番号
-      t.boolean :is_deleted
+      t.boolean :is_deleted, default: false
       # t.datetime :created_at
       # t.datetime :updated_at
 

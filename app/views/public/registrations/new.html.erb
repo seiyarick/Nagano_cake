@@ -14,7 +14,7 @@
   </div>
   <div class="field">
     <%= f.label :メールアドレス %>
-    <form><%= f.email_field :email, autofocus: true, autocomplete: "email" %></form>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
   <div class="field">
     <label>郵便番号(ハイフンなし)</label>
@@ -39,9 +39,9 @@
     <label>パスワード(確認用)</label>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-  <div class="actions">
-    <%= f.submit "新規登録", class:"btn btn-success" %>
 <% end %>
+  <div class="actions">
+    <%= link_to "新規登録",  public_costomer_path ,class:"btn btn-success" %>
   </div>
 </div>
 <div>

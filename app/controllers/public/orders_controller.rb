@@ -7,4 +7,7 @@ class Public::OrdersController < ApplicationController
 
   def show
   end
+  
+  def thanks
+  end
 end

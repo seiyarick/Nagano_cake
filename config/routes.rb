@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get 'homes/top'
     get 'homes/about'
     root 'homes#top'
+    get 'orders/thanks' => 'orders#thanks'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :orders, only: [:new, :index, :show]
     resources :cart_items, only: [:index]

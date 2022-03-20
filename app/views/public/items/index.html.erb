@@ -1,5 +1,9 @@
-<h1>Public::商品一覧</h1>
+<h1>Public::商品一覧(全<%= @items.count %>件)</h1>
 <% @items.each do |item| %>
-<%= @item.image %>
-<%= @item.name %>
-<span>¥<%= @item.price %></span
+  <%= link_to public_item_path(item.id) do %>
+  <%= image_tag item.get_item_image(200,200) %>
+  <% end %>
+  <%= item.name %>
+  <span>¥<%= item.price %></span>
+<% end %>
+<%= paginate @items %>

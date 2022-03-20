@@ -11,7 +11,7 @@ class Public::AddressesController < ApplicationController
 
   def create
     address=Address.new(address_params)
-    address.customer_id=current_customer.id
+    address.customer_id=current_customer.id#customer:addressは1:n|　n側のテーブルにcustomer_idの記述必要
     address.save
     redirect_to  public_addresses_path(address.id)
   end

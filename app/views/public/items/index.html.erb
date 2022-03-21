@@ -4,6 +4,6 @@
   <%= image_tag item.get_item_image(200,200) %>
   <% end %>
   <%= item.name %>
-  <span>¥<%= item.price %></span>
+  <span>¥<%= item.price.to_s(:delimited, delimiter: ',') %></span>
 <% end %>
 <%= paginate @items %>

@@ -24,10 +24,11 @@ Rails.application.routes.draw do
     get 'orders/thanks' => 'orders#thanks'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :orders, only: [:new, :index, :show]
-    resources :cart_items, only: [:index]
+    resources :cart_items, only: [:index, :create, :update, :destroy]
+    delete 'cart_items' => 'cart_items#all_destroy', as: 'all_destroy'
     resources :customers, only: [:show, :edit, :update]
     get 'customers/confirm' => "customers#confirm"
-    resources :items, only: [:index, :show]
+    resources :items, only: [:index, :show, :create]
   end
   # namespace :admin do
   #   get 'customers/index'

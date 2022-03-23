@@ -1,1 +1,45 @@
-<h1>確認画面</h1>
+<h1>注文情報確認画面</h1>
+<div class="table">
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>数量</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart_items.each do |cart_item| %>
+    <tr><%= image_tag cart_item.item.get_item_image(100,100) %><%= cart_item.item.name %></tr>
+    <tr><%= cart_item.item.add_tax_price.to_s(:delimited, delimiter: ',') %></tr>
+    <tr><%= cart_item.amount %></tr>
+    <tr><%= ((cart_item.item.add_tax_price)*(cart_item.amount)).to_s(:delimited, delimiter: ',') %></tr>
+    <% end %>
+  </tbody>
+</div>
+<div class="table">
+  <tbody>
+    <tr>
+      <th>送料</th>
+      <td><%= params[:order][:shipping_cost].to_i %></td>
+    </tr>
+    <tr>
+      <th>商品合計</th>
+      <td><%= @total_price.to_s(:delimited, delimiter: ',')  %></td>
+    </tr>
+    <tr>
+      <th>請求金額</th>
+      <td><%= (params[:order][:shipping_cost] + @total_price).to_s(:delimited, delimiter: ',') %></td>
+    </tr>
+  </tbody>
+</div>
+
+<h5>支払方法</h5>
+<%= @order.payment_method_i18n %>
+<h5>お届け先</h5>
+〒<%= @order.postal_code %>
+<%= @order.address %>
+<%=  @order.name %>
+
+<%= link_to "注文を確定する", public_orders_thanks_path, class:"btn btn-success" %>
+

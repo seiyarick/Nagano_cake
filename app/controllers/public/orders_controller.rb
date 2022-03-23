@@ -10,7 +10,15 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    @order=Order.new
+    @order = Order.new(order_params)
+    @cart_items = current_customer.cart_items
+    params[:order][:shipping_cost] = 800
+    @total_price = 0
+    @cart_items.each do |cart_item|
+     @total_price += cart_item.item.add_tax_price*cart_item.amount
+    end
+
+  #@shipping_cost = params[:order][:shipping_cost]
 
     #ご自身住所選択時
       if params[:order][:select_number] == "1"#paramsはカラムを持ってくるため、[]は持ってきたデータを受け取る記述
@@ -18,7 +26,7 @@ class Public::OrdersController < ApplicationController
        @order.postal_code = current_customer.postal_code
        @order.address = current_customer.address
        @order.name = current_customer.first_name + current_customer.last_name
-          
+
     #登録済み住所選択時
       elsif params[:order] [:select_number] == "2"
         address = Address.find(params[:order][:address_id].to_i)#[:order][:address_id]の文字列を数字に変えるto_iを記述
@@ -33,8 +41,8 @@ class Public::OrdersController < ApplicationController
         @order.postal_code = params[:order][:postal_code]#フォームで入力したデータをparamsが持ってきて[:order][:postal_code]で郵便番号を呼び出す。
         @order.address = params[:order][:address]
         @order.name = params[:order][:name]
-        
-        
+
+
       end
 
 
@@ -54,6 +62,6 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:postal_code, :address, :name)
+    params.require(:order).permit(:postal_code, :address, :name, :payment_method)
   end
 end

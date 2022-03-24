@@ -29,4 +29,42 @@
     <td></td>
   </tr>
 </table>
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th>制作ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @ordering_details.each do |ordering_detail| %>
+      <td><%= ordering_detail.item.name %></td>
+      <td><%= ordering_detail.add_tax_price.to_s(:delimited, delimiter: ',') %></td>
+      <td><%= ordering_detail.amount %></td>
+      <td><%= (ordering_detail.add_tax_price)*(ordering_detail.amount).to_s(:delimited, delimiter: ',') %></td>
+      <td></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <tbody>
+    <tr>
+      <th>商品合計</th>
+      <td><%= @total_price.to_i %>円</td>
+    </tr>
+    <tr>
+      <th>送料</th>
+      <td><%= @order.shipping_cost %>円</td>
+    </tr>
+    <tr>
+      <th>請求合計</th>
+      <td><%= (@total_price.to_i) + (@order.shipping_cost) %>円</td>
+    </tr>
+  </tbody>
+</table>
 

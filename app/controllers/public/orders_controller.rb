@@ -60,13 +60,13 @@ class Public::OrdersController < ApplicationController
   def index
     @orders = current_customer.orders
   end
-  
+
   #退会アクション
   def update_delete
     @customer = current_customer
     @customer.update
     redirect_to public_homes_top_path
-  end  
+  end
 
 
 

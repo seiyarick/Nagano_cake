@@ -9,7 +9,7 @@ class Public::OrdersController < ApplicationController
     @order.customer_id = current_customer.id
     @order.save
     current_customer.cart_items.each do |cart_item|
-    @order_detail = OrderDetail.new
+    @order_detail = OrderingDetail.new
     @order_detail.price = cart_item.item.price
     @order_detail.amount = cart_item.amount
     @order_detail.order_id = @order.id
@@ -23,11 +23,12 @@ class Public::OrdersController < ApplicationController
   def confirm
     @order = Order.new
     @cart_items = current_customer.cart_items
-    params[:order][:shipping_cost] = 800
+    @order.shipping_cost = 800
     @total_price = 0
     @cart_items.each do |cart_item|
      @total_price += cart_item.item.add_tax_price*cart_item.amount
     end
+    @order.total_payment = @total_price + @order.shipping_cost
 
   #@shipping_cost = params[:order][:shipping_cost]
     @order.payment_method = params[:order][:payment_method]
@@ -59,6 +60,8 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.orders
+
+
   end
 
   #退会アクション
@@ -79,6 +82,6 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:postal_code, :address, :name, :payment_method, :customer_id)
+    params.require(:order).permit(:postal_code, :address, :name, :payment_method, :customer_id, :total_payment)
   end
 end

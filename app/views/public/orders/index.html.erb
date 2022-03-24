@@ -19,7 +19,9 @@
         <%= order.address %><br>
         <%= order.name %><br>
       </td>
-      <td><%= order.item.name %></td>
+      <% order.ordering_details.each do |order_detail| %>
+      <td><%= order_detail.item.name %></td>
+      <% end %>
       <td><%= order.total_payment.to_s(:delimited, delimiter: ',') %>円</td>
       <td></td>
       <td><%= link_to "表示する", public_order_path(order.id), class:"btn btn-primary" %></td>

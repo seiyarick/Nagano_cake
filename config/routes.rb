@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     root 'homes#top'
     get 'orders/thanks' => 'orders#thanks'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-    resources :orders, only: [:new, :index, :show]
+    resources :orders, only: [:new, :index, :show, :create]
     post 'orders/confirm' => "orders#confirm"
     resources :cart_items, only: [:index, :create, :update, :destroy]
     delete 'cart_items' => 'cart_items#all_destroy', as: 'all_destroy'

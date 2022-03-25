@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <div class="table">
-        <h2>会員一覧</h2>
-          <tr>
+      <table class="table">
+        <h2 class="my-5">会員一覧</h2>
+          <tr class="bg-light">
             <th>会員ID</th>
             <th>氏名</th>
             <th>メールアドレス</th>
@@ -13,7 +13,10 @@
           <tbody>
             <tr>
               <td><%= customer.id %></td>
-              <td><%= customer.name %></td>
+              <td>
+                <%= customer.first_name %>
+                <%= customer.last_name %>
+              </td>
               <td><%= customer.email %></td>
               <td>
                 <% if customer.is_deleted == true %>

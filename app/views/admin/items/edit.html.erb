@@ -2,13 +2,14 @@
 
 <div class="container">
   <div class="row">
+    <div class="col-8 col-offset-4">
         <table class="new-form-table mx-auto">
         <h2 class="mx-auto mt-5">商品編集</h2>
           <tbody>
             <%= form_with model: @item ,url: admin_item_path do |f| %>
             <tr>
-              <th class="col-6">商品画像</th>
-              <td class="col-6"><%= f.file_field :image, accept: "image/*" %></td><br>
+              <th>商品画像</th>
+              <td><%= f.file_field :image, accept: "image/*" %></td><br>
             </tr>
             <tr>
               <th>商品名</th>
@@ -39,5 +40,6 @@
             <% end %>
           </tbody>
         </table>
+    </div>
   </div>
 </div>

@@ -1,11 +1,25 @@
 class Admin::OrdersController < ApplicationController
   def show
     @order=Order.find(params[:id])
+    @ordering_details=@order.ordering_details
+   
     @order.shipping_cost = 800
-    @orderring_details = @order.ordering_detail
     @total_price = 0
-    @@orders.each do |order|
-     @total_price += order.price.add_tax_price*order.ordering_detail.amount
+    @ordering_details.each do |ordering_detail|
+     @total_price += ordering_detail.item.add_tax_price*ordering_detail.amount
     end
+    @order.total_payment = @total_price + @order.shipping_cost
+
+
   end
+
+  def update
+
+  end
+end
+
+
+private
+def order_params
+  params.require(:order).permit()
 end

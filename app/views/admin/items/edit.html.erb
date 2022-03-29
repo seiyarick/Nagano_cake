@@ -3,43 +3,33 @@
 <div class="container">
   <div class="row">
     <div class="col-8 col-offset-4">
-        <table class="new-form-table mx-auto">
         <h2 class="mx-auto mt-5">商品編集</h2>
-          <tbody>
+
             <%= form_with model: @item ,url: admin_item_path do |f| %>
-            <tr>
-              <th>商品画像</th>
-              <td><%= f.file_field :image, accept: "image/*" %></td><br>
-            </tr>
-            <tr>
-              <th>商品名</th>
-              <td><%= f.text_field :name %></td><br>
-            </tr>
-            <tr>
-              <th>商品説明文</th>
-              <td><%= f.text_area :introduction %></td><br>
-            </tr>
-            <tr>
-              <th>ジャンル</th>
-              <td><%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--" %></td><br>
-            </tr>
-            <tr>
-              <th>税抜価格</th>
-              <td><%= f.text_field :price %>円</td><br>
-            </tr>
-            <tr>
-              <th>販売ステータス</th>
-              <td>
-                <%= f.radio_button :is_active, true, checked: true %>販売中
-                 <%= f.radio_button :is_active, false %>販売停止中<br>
-              </td>
-            </tr>
-            <tr class="mx-auto">
-            <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
-            </tr>
+
+              <%= f.label "商品画像", class:"col-form-label" %>
+              <%= f.file_field :image, accept: "image/*" %>
+
+              <%= f.label "商品名", class:"col-form-label" %>
+              <%= f.text_field :name, class:"form-control" %>
+
+              <%= f.label "商品説明文", class:"col-form-label"%>
+              <%= f.text_area :introduction, class:"form-control" %>
+
+              <%= f.label "ジャンル",class:"col-form-label" %>
+              <%= f.collection_select :genre_id, Genre.all ,:id, :name, include_blank: "--選択してください--", class:"form-control" %>
+
+              <%= f.label "税抜価格", class:"col-form-label" %>
+              <%= f.text_field :price, class:"form-control" %>円
+
+              <%= f.label "販売ステータス", class:"col-form-label" %>
+              <%= f.radio_button :is_active, true, checked: true %>販売中
+              <%= f.radio_button :is_active, false %>販売停止中
+
+              <%= f.submit "変更を保存", class:"btn btn-success" %>
+
             <% end %>
-          </tbody>
-        </table>
+
     </div>
   </div>
 </div>

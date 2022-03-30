@@ -17,7 +17,11 @@ class Public::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+  protected
+  #退会しているかを判断するメソッド
+  def customer_state
+    #[処理内容１]　入力されたemailからアカウントを１件取得
+    @customer = Cusomer.find_by(email: params[:customer][:email])
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params

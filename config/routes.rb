@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
     get 'homes/top'
     get 'admin' => 'homes#top'
+    post 'homes/top' => 'homes#top'#管理者ログイン時に通るパス
     patch 'ordering_details/:id' => "ordering_details#update"
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :edit, :create, :update]
@@ -26,14 +27,14 @@ Rails.application.routes.draw do
     get 'homes/about'
     root 'homes#top'
     get 'orders/thanks' => 'orders#thanks'
+    post 'orders/confirm' => "orders#confirm"
+    patch '/customers/update_delete' => 'customers#update_delete'
+    get 'customers/confirm' => "customers#confirm"
+    delete 'cart_items' => 'cart_items#all_destroy', as: 'all_destroy'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :orders, only: [:new, :index, :show, :create]
-    post 'orders/confirm' => "orders#confirm"
     resources :cart_items, only: [:index, :create, :update, :destroy]
-    delete 'cart_items' => 'cart_items#all_destroy', as: 'all_destroy'
     resources :customers, only: [:show, :edit, :update]
-    patch '/customers/update_delete' => 'customer#update_delete'
-    get 'customers/confirm' => "customers#confirm"
     resources :items, only: [:index, :show, :create]
   end
   # namespace :admin do

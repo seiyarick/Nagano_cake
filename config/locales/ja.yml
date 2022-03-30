@@ -16,3 +16,6 @@ ja:
         waiting: "制作待ち"
         making: "製作中"
         complete: "制作完了"
+    admin:
+     email: "test@test.com"
+     password: "testtest"

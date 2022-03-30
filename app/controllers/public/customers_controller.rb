@@ -13,6 +13,13 @@ class Public::CustomersController < ApplicationController
     redirect_to public_customer_path(customer.id)
   end
 
+  def update_delete
+    customer=current_customer
+    customer.update(is_deleted: true)#updateと同時にis_deleted: true として退会状態にする　＊is_deleted ・・・退会していますか
+    reset_session#セッション情報を全て削除
+    redirect_to public_homes_top_path
+  end
+
   private
 
   def customer_params

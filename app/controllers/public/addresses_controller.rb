@@ -17,7 +17,7 @@ class Public::AddressesController < ApplicationController
   end
 
   def destroy
-    address=Address.find([:id])
+    address=Address.find(params[:id])
     address.destroy
     redirect_to public_addresses_path
   end

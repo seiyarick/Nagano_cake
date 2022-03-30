@@ -9,8 +9,8 @@ class Item < ApplicationRecord
         (self.price * 1.1).round
    end
 
-   def get_item_image(width,height)
-      image.variant(resize_to_limit: [width, height]).processed
-   end
+   # def get_item_image(width,height)
+   #    image.variant(resize_to_limit: [width, height]).processed
+   # end
 end
 

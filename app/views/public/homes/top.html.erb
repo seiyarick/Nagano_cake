@@ -21,11 +21,11 @@
     <div class="col-6 col-offset-6">
       <h3 class="mx-auto">新着商品</h3>
       <div class="items">
-        <%#= @items.first(4).each do |item| %>
-        <%#= item.image %>
-        <%#= item.name %>
-        <%#= item.price.to_s(:delimited, delimiter: ',') %>
-        <%# end %>
+        <% @items.first(4).each do |item| %>
+        <%= image_tag item.image, size:"200x200" %>
+        <%= item.name %>
+        <%= item.price.to_s(:delimited, delimiter: ',') %>
+        <% end %>
       </div>
     </div>
   </div>

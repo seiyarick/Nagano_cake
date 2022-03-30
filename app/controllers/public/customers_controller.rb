@@ -9,8 +9,14 @@ class Public::CustomersController < ApplicationController
 
   def create
     customer=Customer.find(params[:id])
-    customer.update(customer_params)
+    customer.save(customer_params)
     redirect_to public_customer_path(customer.id)
+  end
+
+  def update
+    customer=Customer.find(params[:id])
+    customer.update(customer_params)
+    redirect_to public_homes_top_path
   end
 
   def update_delete

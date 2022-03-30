@@ -23,4 +23,7 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  def after_sign_out_path_for(resource)
+    public_homes_top_path#サインアウト後の遷移先のパス
+  end
 end

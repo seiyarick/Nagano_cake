@@ -1,8 +1,8 @@
 
-<h2>新規会員登録</h2>
 <div class="container">
-  <div class="row">
-    <div class="col-10">
+  <div class="row justify-content-center">
+  <h2 class="my-4">新規会員登録</h2>
+    <div class="col-sm-10">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "public/shared/error_messages", resource: resource %>
 
@@ -83,11 +83,15 @@
         <%= f.submit "新規登録", class:"btn btn-success mx-auto" %>
       </div>
     <% end %>
+     </div>
     </div>
-    <div class="text-right">
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-right">
       <h6>既に登録済みの方<h6>
-      <p><%= link_to "こちら", new_customer_session_path %>からログインしてください</p>
-    </div>
+        <p><%= link_to "こちら", new_customer_session_path %>からログインしてください</p>
     </div>
   </div>
 </div>

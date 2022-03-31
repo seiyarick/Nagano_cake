@@ -4,21 +4,21 @@
       <table class="table">
         <h2 class="my-5">会員一覧</h2>
           <tr class="bg-light">
-            <th>会員ID</th>
-            <th>氏名</th>
-            <th>メールアドレス</th>
-            <th>ステータス</th>
+            <th class="text-center">会員ID</th>
+            <th class="text-center">氏名</th>
+            <th class="text-center">メールアドレス</th>
+            <th class="text-center">ステータス</th>
           </tr>
         　<% @customers.each do |customer| %>
           <tbody>
             <tr>
-              <td><%= customer.id %></td>
-              <td>
+              <td class="text-center"><%= customer.id %></td>
+              <td class="text-center">
                 <%= customer.first_name %>
                 <%= customer.last_name %>
-              </td>
-              <td><%= customer.email %></td>
-              <td>
+              </td class="text-center">
+              <td class="text-center"><%= customer.email %></td>
+              <td class="text-center">
                 <% if customer.is_deleted == true %>
                   <text class="text-success">有効</text>
                 <% else %>
@@ -28,8 +28,10 @@
             </tr>
           </tbody>
         <% end %>
-      </div>
+      </table>
+      <div class="mx-auto">
       <%= paginate @customers %>
+      </div>
     </div>
   </div>
 </div>

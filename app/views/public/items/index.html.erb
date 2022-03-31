@@ -1,9 +1,29 @@
-<h1>Public::商品一覧(全<%= @items.count %>件)</h1>
-<% @items.each do |item| %>
-  <%= link_to public_item_path(item.id) do %>
-  <%= image_tag item.image, size: "200x200" %>
-  <% end %>
-  <%= item.name %>
-  <span>¥<%= item.price.to_s(:delimited, delimiter: ',') %></span>
-<% end %>
-<%= paginate @items %>
+<div class="contaimer">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h1 class="my-5">商品一覧(全<%= @items.count %>件)</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="row justify-content-center">
+        <% @items.each do |item| %>
+        <div class="col-md-4">
+        <%= link_to public_item_path(item.id) do %><br>
+        <%= image_tag item.image, size: "200x200" %><br>
+        <% end %>
+        <%= item.name %><br>
+        <span>¥<%= item.price.to_s(:delimited, delimiter: ',')%></span><br>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+ <div class="row justify-content-center">
+  <h3 class="my-5 col-8"><%= paginate @items %></h3>
+ </div>
+</div>

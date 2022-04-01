@@ -16,7 +16,7 @@ class Public::CustomersController < ApplicationController
   def update
     customer=Customer.find(params[:id])
     customer.update(customer_params)
-    redirect_to public_homes_top_path
+    redirect_to public_path(customer.id)
   end
 
   def update_delete

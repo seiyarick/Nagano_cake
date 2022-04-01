@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    get 'homes/top'
+   get 'homes/top'
     get 'admin' => 'homes#top'
     post 'homes/top' => 'homes#top'#管理者ログイン時に通るパス
     patch 'ordering_details/:id' => "order_details#update"
@@ -25,11 +25,12 @@ Rails.application.routes.draw do
     root 'homes#top'
     get 'orders/thanks' => 'orders#thanks'
     post 'orders/confirm' => "orders#confirm"
+    get 'order/:id' => 'orders#show'
     patch '/customers/update_delete' => 'customers#update_delete'
     get 'customers/confirm' => "customers#confirm"
     delete 'cart_items' => 'cart_items#all_destroy', as: 'all_destroy'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-    resources :orders, only: [:new, :index, :show, :create]
+    resources :orders, only: [:new, :index, :create]
     resources :cart_items, only: [:index, :create, :update, :destroy]
     resources :customers, only: [:show, :edit, :update]
     resources :items, only: [:index, :show, :create]

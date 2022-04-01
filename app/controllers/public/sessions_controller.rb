@@ -25,7 +25,7 @@ class Public::SessionsController < Devise::SessionsController
     #アカウントを取得できなかった場合、このメソッドを修了する。
     return if !@customer#もしemailがなければ
     #[処理内容２]　取得したアカウントのパスワードと入力されたパスワードが一致しているかを判別
-    if @customer.valid_password?(params[:customer][:password]) && (@customer.is_delated==false)
+    if @customer.valid_password?(params[:customer][:password]) && (@customer.is_delated==true)
       #[処理内容]
         redirect_to public_homes_top_path
 

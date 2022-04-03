@@ -21,7 +21,7 @@
               </td class="text-center">
               <td class="text-center"><%= customer.email %></td>
               <td class="text-center">
-                <% if customer.is_deleted == true %>
+                <% if customer.is_deleted == false %>
                   <text class="text-success">有効</text>
                 <% else %>
                   <text class="text-danger">退会</text>

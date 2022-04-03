@@ -6,9 +6,9 @@
 <div class="container">
  <div class="row">
   <div class="col-8 col-offset-2 mx-auto">
+      <%= form_with model: @customer ,url: admin_customer_path do |f| %>
     <table>
       <tbody>
-      <%= form_with model: @customer ,url: admin_customer_path do |f| %>
       <tr>
         <th><%= f.label "会員ID", class:"form-label" %></th>
         <td><%= @customer.id %><br></td>
@@ -65,23 +65,23 @@
       <tr>
         <th><%= f.label "会員ステータス" %></th>
         <td>
-        <%= f.radio_button :is_active, true, checked: true %>有効
-        <%= f.radio_button :is_active, false %>退会<br>
+        <%= f.radio_button :is_deleted, true, checked: true %>有効
+        <%= f.radio_button :is_deleted, false %>退会<br>
         </td>
       </tr>
 
      </tbody>
     </table>
+    <div class="container">
+      <div class="row">
+        <div class="col-8 col-offset-2 mx-auto mt-3">
+        <%= f.submit "変更を保存", class:"btn btn-success" %>
+        </div>
+      </div>
+    </div>
+      <% end %>
   </div>
  </div>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="col-8 col-offset-2 mx-auto mt-3">
-    <%= f.submit "変更を保存", class:"btn btn-success" %>
-    </div>
-  </div>
-</div>
-  <% end %>
 
 

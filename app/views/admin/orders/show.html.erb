@@ -61,8 +61,8 @@
                 <td>
                     <%= f.select:making_status, OrderingDetail.making_statuses_i18n.invert,{} %><!--invertでkeyとvalueを入れ替える。{}はmaiking_statusesの中身を指す-->
                     <%= f.submit "更新", class:" btn btn-success" %>
-                </td>
                     <% end %>
+                </td>
               </tr>
             </tbody>
                 <% end %>

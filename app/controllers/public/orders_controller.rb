@@ -1,6 +1,12 @@
 class Public::OrdersController < ApplicationController
   def new
+    cart_items = current_customer.cart_items
+    if cart_items == nil
+      redirect_to public_orders_path
+    end
+
     @order=Order.new
+
 
   end
 

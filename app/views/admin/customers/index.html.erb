@@ -14,8 +14,10 @@
             <tr>
               <td class="text-center"><%= customer.id %></td>
               <td class="text-center">
+                <%= link_to admin_customer_path(customer.id) do %>
                 <%= customer.first_name %>
                 <%= customer.last_name %>
+                <% end %>
               </td class="text-center">
               <td class="text-center"><%= customer.email %></td>
               <td class="text-center">

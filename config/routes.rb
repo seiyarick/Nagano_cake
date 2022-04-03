@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     get 'homes/about'
     root 'homes#top'
     get 'orders/thanks' => 'orders#thanks'
+    #get 'orders/confirm' => "orders#confirm"
     post 'orders/confirm' => "orders#confirm"
     get 'order/:id' => 'orders#show'
     patch '/customers/update_delete' => 'customers#update_delete'

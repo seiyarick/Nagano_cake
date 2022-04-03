@@ -8,7 +8,7 @@
 <div class="container">
   <div class="row">
     <div class="col-10">
-    <%= form_with model:@customer,url: public_customer_path(@customer.id) do |f| %>
+    <%= form_with model:@customer,url: public_customer_path(@customer.id),method: :patch do |f| %>
       <div class="row mb-4">
         <div class="col-4">
         <%= f.label "名前", class:"col-form-label"%>
@@ -72,7 +72,6 @@
         </div>
       </div>
     <% end %>
-
     </div>
   </div>
 </div>

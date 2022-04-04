@@ -57,7 +57,7 @@
                 <td><%= ordering_detail.item.add_tax_price.to_s(:delimited, delimiter: ',') %></td>
                 <td><%= ordering_detail.amount %></td>
                 <td><%= (ordering_detail.item.add_tax_price)*(ordering_detail.amount) %></td>
-                    <%= form_with model: ordering_detail, url: admin_path(ordering_detail), method: :patch do |f| %>
+                    <%= form_with model: ordering_detail, url: admin_path(ordering_detail.id), method: :patch do |f| %>
                 <td>
                     <%= f.select:making_status, OrderingDetail.making_statuses_i18n.invert,{} %><!--invertでkeyとvalueを入れ替える。{}はmaiking_statusesの中身を指す-->
                     <%= f.submit "更新", class:" btn btn-success" %>
